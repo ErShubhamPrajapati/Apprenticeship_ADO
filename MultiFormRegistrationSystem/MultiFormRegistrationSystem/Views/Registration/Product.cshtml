@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2 class="text-center mb-4">Product Registration</h2>
+
+<form method="post">
+
+    <label class="form-label">Product Name</label>
+    <input type="text" class="form-control mb-3" name="productname" placeholder="Enter Product Name">
+
+    <label class="form-label">Category</label>
+    <input type="text" class="form-control mb-3" name="category" placeholder="Enter Category">
+
+    <label class="form-label">Price</label>
+    <input type="number" class="form-control mb-3" name="price" placeholder="Enter Price">
+
+    <label class="form-label">Quantity</label>
+    <input type="number" class="form-control mb-3" name="quantity" placeholder="Enter Quantity">
+
+    <label class="form-label">Description</label>
+    <textarea class="form-control mb-3" name="description" rows="3" placeholder="Enter Description"></textarea>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

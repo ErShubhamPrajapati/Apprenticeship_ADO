@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<form method="post">
+    <h2>Register Today</h2>
+    <br />
+    <p>Fill in the data below</p>
+    <br />
+    <input type="text" name="name" class="form-control" placeholder="Enter Name." />
+    <br />
+    <input type="email" name="email" class="form-control" placeholder="Email" />
+    <br />
+    <select name="Postion" class="form-control">
+        <option>select</option>
+        <option>Empolyee</option>
+        <option>HR</option>
+        <option>Manager</option>
+    </select>
+    <br />
+    <input type="password" name="password" class=" form-control" placeholder=" Enter password" />
+    <br />
+    Gender: <input type="radio" value="male" name="gender" /> Male
+    <input type="radio" value="female" name="gender" /> Female
+    <br />
+    <input type="checkbox" /> check the box
+    <br />
+    <input type="submit" value="Register Now" class="btn btn-primary" />
+</form>
+
+

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<form method="post">
+
+    <input type="text" name="name" class="form-control" placeholder="Enter Name" />
+    <br />
+    <input type="email" name="email" class="form-control" placeholder="Enter Email" />
+    <br />
+    <input type="number" name="number" class="form-control" placeholder="Enter Number" />
+    <br />
+    <input type="date" name="dob" class="form-control" />
+    <br/>
+    Select Gender:
+    <input type="radio" name="gender" value="Male" /> Male &nbsp; &nbsp;
+    <input type="radio" name="gender" value="Female" /> Female  &nbsp; &nbsp;
+    <br />
+    <br />
+
+    <select class="form-control" name="quali">
+        <option>Select Qualification</option>
+        <option>Diploma</option>
+        <option>BCA</option>
+        <option>MCA</option>
+        <option>B.Tech</option>
+    </select>
+    <br/>
+    <input type="submit" value="Register Now" class="btn btn-primary" />
+</form>

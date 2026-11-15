@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "EmployeeRegistration";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="row">
+
+                <!-- Employee Registration Form -->
+                <div class="col-sm-4">
+
+                    <form method="post">
+
+                        <h3>Employee Registration</h3>
+                        <br />
+
+                        <label>Employee ID</label>
+                        <input type="text" name="employeeid" class="form-control" />
+                        <br />
+
+                        <label>Employee Name</label>
+                        <input type="text" name="employeename" class="form-control" />
+                        <br />
+
+                        <label>Email</label>
+                        <input type="email" name="employeeemail" class="form-control" />
+                        <br />
+
+                        <label>Mobile Number</label>
+                        <input type="tel" name="employeemobileno" class="form-control" />
+                        <br />
+
+                        <label>Department</label>
+                        <select name="employeedepartment" class="form-control">
+                            <option value="">Select Department</option>
+                            <option>IT</option>
+                            <option>HR</option>
+                            <option>Sales</option>
+                            <option>Marketing</option>
+                            <option>Finance</option>
+                            <option>Development</option>
+                        </select>
+                        <br />
+
+                        <label>Salary</label>
+                        <input type="number" name="employeesalary" class="form-control" />
+                        <br />
+
+                        <label>Joining Date</label>
+                        <input type="date" name="employeejoining" class="form-control" />
+                        <br />
+
+                        <label>Designation</label>
+                        <select name="employeedesignation" class="form-control">
+                            <option value="">Select Designation</option>
+                            <option>Software Developer</option>
+                            <option>Web Developer</option>
+                            <option>Frontend Developer</option>
+                            <option>Backend Developer</option>
+                            <option>Full Stack Developer</option>
+                        </select>
+                        <br />
+
+                        <label>Gender</label>
+                        <br />
+
+                        <input type="radio" name="employeegender" value="Male" /> Male &nbsp;
+                        <input type="radio" name="employeegender" value="Female" /> Female
+                        <br /><br />
+
+                        <label>Address</label>
+                        <textarea name="employeeaddress" class="form-control"></textarea>
+                        <br />
+
+                        <input type="submit" value="Register Now" class="btn btn-primary" />
+                        <input type="reset" value="Reset" class="btn btn-danger" />
+
+                    </form>
+
+                </div>
+
+
+                <!-- Employee Card View -->
+                <div class="col-sm-8">
+
+                    <div class="container mt-4">
+
+                        <div class="row">
+
+                            @foreach (System.Data.DataRow row in ViewBag.dt.Rows)
+                            {
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="card shadow rounded-3 border-0">
+
+                                        <div class="card-header bg-primary bg-opacity-25 p-3">
+
+                                            <div class="d-flex align-items-center gap-3">
+
+                                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                     style="width:90px;height:90px;font-size:35px;">
+
+                                                    @(row["EmployeeName"].ToString().Substring(0, 1).ToUpper())
+
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="mb-1 fw-bold">
+                                                        @row["EmployeeName"]
+                                                    </h4>
+
+                                                    <span class="badge bg-primary fs-6">
+                                                        @row["EmployeeId"]
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="card-body p-4">
+
+                                            <p>📧 &nbsp; @row["EmployeeEmail"]</p>
+
+                                            <p>📞 &nbsp; @row["EmployeeMobileNo"]</p>
+
+                                            <p>🏢 &nbsp; @row["EmployeeDepartment"]</p>
+
+                                            <p>💰 &nbsp; @row["EmployeeSalary"]</p>
+
+                                            <p>📅 &nbsp; @row["EmployeeJoining"]</p>
+
+                                            <p>💼 &nbsp; @row["EmployeeDesignation"]</p>
+
+                                            <p>👤 &nbsp; @row["EmployeeGender"]</p>
+
+                                            <p>📍 &nbsp; @row["EmployeeAddress"]</p>
+
+
+                                            <div class="d-flex gap-2 mt-4">
+
+                                                <button class="btn btn-primary flex-fill">
+                                                    <i class="bi bi-eye-fill"></i> View Details
+                                                </button>
+
+                                                <button class="btn btn-warning flex-fill text-white">
+                                                    <i class="bi bi-pencil-fill"></i> Edit
+                                                </button>
+
+                                                <button class="btn btn-danger flex-fill">
+                                                    <i class="bi bi-trash-fill"></i> Delete
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

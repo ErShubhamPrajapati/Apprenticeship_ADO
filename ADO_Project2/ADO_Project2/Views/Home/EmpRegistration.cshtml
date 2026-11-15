@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "EmpRegistration";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+
+            <form method="post">
+                <h2>EmpRegistration</h2>
+                <label>EmpID</label>
+                <input type="text" name="empid" class="form-control" placeholder="Enter EmpId.." />
+                <br />
+                <label>Emp Name</label>
+                <input type="text" name="empname" class="form-control" placeholder="Enter Emp Name.." />
+                <br />
+                <label>Gender</label>
+                <input type="radio" name="gender" value="Male" />Male &nbsp; &nbsp;
+                <input type="radio" name="gender" value="Female" />Female &nbsp; &nbsp;
+                <br />
+                <label>DOB</label>
+                <input type="date" name="dob" class="form-control" placeholder="Enter DOB" />
+                <br />
+                <label>Designation</label>
+                <select name="designation" class="form-control">
+                    <option>Select Designation</option>
+                    <option>HR</option>
+                    <option>Team</option>
+                    <option>Software Er.</option>
+                </select>
+                <br />
+                <label>Salary</label>
+                <input type="number" name="salary" class="form-control" placeholder="Enter salary." />
+                <br />
+
+                <input type="submit" value="Registar Now." class=" btn btn-primary" />
+            </form>
+        </div>
+
+        <div class="col-sm-8">
+            <table class="table-bordered text-center" cellpadding="10">
+                <thead>
+                    <tr>
+                        <th>Empid</th>
+                        <th>EmpName</th>
+                        <th>EmpGender</th>
+                        <th>EmpDOB</th>
+                        <th>EmpDesignation</th>
+                        <th>EmpSalary</th>
+                        <th>EmpRegDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(System.Data.DataRow row in ViewBag.data.Rows)
+            {
+                <tr>
+                    <td>@row["empid"]</td>
+                    <td>@row["empname"]</td>
+                    <td>@row["gender"]</td>
+                    <td>@row["dob"]</td>
+                    <td>@row["designation"]</td>
+                    <td>@row["salary"]</td>
+                    <td>@row["reg_time"]</td>
+
+                </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

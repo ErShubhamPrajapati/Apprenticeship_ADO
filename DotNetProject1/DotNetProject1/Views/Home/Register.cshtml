@@ -1,8 +1,15 @@
-﻿
+﻿@using System.Data;
 @{
     ViewBag.Title = "Register";
 }
 
+@if(ViewBag.data!=null)
+{
+<h3>Total Records = @ViewBag.data.Rows.Count</h3>
+<h3>Total Columns = @ViewBag.data.Columns.Count</h3>
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <form method="post">
     <h2>Register Today</h2>
     <br />
@@ -29,4 +36,30 @@
     <input type="submit" value="Register Now" class="btn btn-primary" />
 </form>
 
+<br/>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Postion</th>
+        <th>password</th>
+        <th>gender</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
 
+    @foreach(DataRow row in ViewBag.data.Rows)
+    {
+      <tr>
+          <td>@row["id"]</td>
+          <td>@row["name"]</td>
+          <td>@row["email"]</td>
+          <td>@row["Postion"]</td>
+          <td>@row["password"]</td>
+          <td>@row["gender"]</td>
+          <td><button class="btn btn-success" value="Edit">Edit</button></td>
+          <td><button class="btn btn-danger" value="Delete">Delete</button></td>
+      </tr>
+    }
+</table>

@@ -5,12 +5,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System.Data;
 
 
 namespace DotNetProject1.Controllers
 {
     public class HomeController : Controller
     {
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-LA76PSS\\SQLEXPRESS02;Initial Catalog=db_ex1;Integrated Security=True;");
         public ActionResult Index()
         {
             return View();
@@ -32,6 +34,10 @@ namespace DotNetProject1.Controllers
 
         public ActionResult Register()
         {
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from tbl_signup",connection);
+            DataTable data = new DataTable();
+            adapter.Fill(data);
+            ViewBag.data = data;
             return View();
         }
         [HttpPost]
@@ -46,8 +52,7 @@ namespace DotNetProject1.Controllers
                 con.Open();
                 int res = cmd.ExecuteNonQuery();
                 con.Close();
-
-                return Content("<script>alert('Data Successfully Added');location.href='/home/Register';</script>");
+               return Content("<script>alert('Data Successfully Added');location.href='/home/Register';</script>");
             }
             catch (Exception ex)
             {

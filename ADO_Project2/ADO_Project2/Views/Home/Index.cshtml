@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div class="container-fluid">
+    <div class="row">
+
+        @foreach (System.Data.DataRow row in ViewBag.data.Rows)
+        {
+            <div class="col-sm-4">
+
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Emp id: @row["empid"] </h5>
+                        <p class="card-text">Emp Name: @row["empname"]</p>
+                        <p class="card-text">Gender: @row["gender"] </p>
+                        <p class="card-text">DOB: @row["dob"]</p>
+                        <p class="card-text">Designation:@row["designation"]</p>
+                        <p class="card-text">Salary: @row["salary"]</p>
+                        <p class="card-text">EmpRegDate: @row["reg_time"]</p>
+
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+                }
+           
+        </div>
+</div>

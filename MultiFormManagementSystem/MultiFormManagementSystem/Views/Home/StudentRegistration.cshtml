@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "StudentRegistration";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <form method="post">
+                        <h3>StudentRegistration</h3>
+                        <br />
+                        <lable>Student ID</lable>
+                        <input type="text" name="studentid" class="form-control" />
+                        <br />
+                        <lable>Student Name</lable>
+                        <input type="text" name="studentname" class="form-control" />
+                        <br />
+                        <lable>Email</lable>
+                        <input type="email" name="studentemail" class="form-control" />
+                        <br />
+                        <lable> Mobile Number </lable>
+                        <input type="number" name="studentmobileno" class="form-control" />
+                        <br />
+                        <lable>Date of Birth </lable>
+                        <input type="date" name="studentdob" class="form-control" />
+                        <br />
+                        <lable>Gender</lable>
+                        <input type="radio" name="studentgender" value="Male" /> Male &nbsp; &nbsp;
+                        <input type="radio" name="studentgender" value="Female" /> Female &nbsp; &nbsp;
+                        <br />
+                        <lable>Address </lable>
+                        <input type="text" name="studentaddress" class="form-control" />
+                        <br />
+                        <lable>Father's Name </lable>
+                        <input type="text" name="fathername" class="form-control" />
+                        <br />
+                        <label>Qualification</label>
+                        <select name="studentqualification" class="form-control">
+                            <option> Select Qualification </option>
+                            <option>Diploma</option>
+                            <option>B.Tech</option>
+                            <option>M.Tech</option>
+                            <option>BCA</option>
+                        </select>
+                        <br />
+                        <label>Registration Date </label>
+                        <input type="date" name="studentregistration" class="form-control" />    <br />
+
+                        <input type="submit" value="Register Now " class="btn btn-primary" />
+                    </form>
+                </div>
+                <div class="col-sm-8">
+                    <div class="container mt-4">
+                        <div class="row">
+                            @foreach (System.Data.DataRow row in ViewBag.dt.Rows)
+                            {
+
+                                <div class="col-md-5">
+
+                                    <div class="card shadow rounded-3 border-0">
+
+                                        <div class="card-header bg-primary bg-opacity-25 p-3">
+                                            <div class="d-flex align-items-center gap-3">
+
+                                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                     style="width:90px;height:90px;font-size:35px;">
+                                                    @row["studentname"].ToString().Substring(0,1).ToUpper()
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="mb-1 fw-bold"> @row["studentname"]</h4>
+                                                    <span class="badge bg-primary fs-6"> @row["studentid"]</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="card-body p-4">
+
+                                            <p>📧 &nbsp; @row["studentemail"]</p>
+
+                                            <p>📞 &nbsp; @row["studentmobileno"]</p>
+
+                                            <p>🎂 &nbsp; @row["studentdob"]</p>
+
+                                            <p>🎓 &nbsp; @row["studentqualification"] </p>
+
+                                            <p>📍 &nbsp; @row["studentaddress"]</p>
+
+                                            <div class="d-flex gap-2 mt-4">
+
+                                                <button class="btn btn-primary flex-fill">
+                                                    <i class="bi bi-eye-fill"></i> View Details
+                                                </button>
+
+                                                <button class="btn btn-warning flex-fill text-white">
+                                                    <i class="bi bi-pencil-fill"></i> Edit
+                                                </button>
+
+                                                <button class="btn btn-danger flex-fill">
+                                                    <i class="bi bi-trash-fill"></i> Delete
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

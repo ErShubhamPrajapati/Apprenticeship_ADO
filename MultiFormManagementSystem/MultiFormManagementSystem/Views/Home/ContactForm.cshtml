@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "ContactForm";
+}
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="row">
+
+                <!-- Contact Registration Form -->
+                <div class="col-sm-4">
+
+                    <form method="post">
+
+                        <h3>Contact Registration</h3>
+                        <br />
+
+                        <label>Contact ID</label>
+                        <input type="text" name="contactid" class="form-control" />
+                        <br />
+
+                        <label>Name</label>
+                        <input type="text" name="contactname" class="form-control" />
+                        <br />
+
+                        <label>Email</label>
+                        <input type="email" name="contactemail" class="form-control" />
+                        <br />
+
+                        <label>Mobile Number</label>
+                        <input type="tel" name="contactmobileno" class="form-control" />
+                        <br />
+
+                        <label>Subject</label>
+                        <input type="text" name="contactsubject" class="form-control" />
+                        <br />
+
+                        <label>Message</label>
+                        <textarea name="contactmessage" class="form-control" rows="3"></textarea>
+                        <br />
+
+                        <label>City</label>
+                        <input type="text" name="contactcity" class="form-control" />
+                        <br />
+
+                        <label>State</label>
+                        <select name="contactstate" class="form-control">
+                            <option value="">Select State</option>
+                            <option>Uttar Pradesh</option>
+                            <option>Delhi</option>
+                            <option>Bihar</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Rajasthan</option>
+                            <option>Haryana</option>
+                            <option>Maharashtra</option>
+                            <option>Punjab</option>
+                        </select>
+                        <br />
+
+                        <label>Contact Date</label>
+                        <input type="date" name="contactdate" class="form-control" />
+                        <br />
+
+                        <label>Contact Type</label>
+                        <select name="contacttype" class="form-control">
+                            <option value="">Select Contact Type</option>
+                            <option>General Inquiry</option>
+                            <option>Technical Support</option>
+                            <option>Feedback</option>
+                            <option>Complaint</option>
+                            <option>Business Inquiry</option>
+                            <option>Other</option>
+                        </select>
+                        <br />
+
+                        <input type="submit" value="Submit Now" class="btn btn-primary" />
+                        <input type="reset" value="Reset" class="btn btn-danger" />
+
+                    </form>
+
+                </div>
+
+
+                <!-- Contact Card View -->
+                <div class="col-sm-8">
+
+                    <div class="container mt-4">
+
+                        <div class="row">
+
+                            @foreach (System.Data.DataRow row in ViewBag.dt.Rows)
+                            {
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="card shadow rounded-3 border-0">
+
+                                        <div class="card-header bg-primary bg-opacity-25 p-3">
+
+                                            <div class="d-flex align-items-center gap-3">
+
+                                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                     style="width:90px;height:90px;font-size:35px;">
+
+                                                    @(row["contactname"].ToString().Substring(0, 1).ToUpper())
+
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="mb-1 fw-bold">
+                                                        @row["contactname"]
+                                                    </h4>
+
+                                                    <span class="badge bg-primary fs-6">
+                                                        @row["contactid"]
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="card-body p-4">
+
+                                            <p>📧 &nbsp; @row["contactemail"]</p>
+
+                                            <p>📞 &nbsp; @row["contactmobileno"]</p>
+
+                                            <p>📝 &nbsp; @row["contactsubject"]</p>
+
+                                            <p>💬 &nbsp; @row["contactmessage"]</p>
+
+                                            <p>📍 &nbsp; @row["contactcity"]</p>
+                                            <p>🗺️ &nbsp; @row["contactstate"]</p>
+                                            <p>📅 &nbsp; @row["contactdate"]</p>
+                                            <p>📩 &nbsp; @row["contacttype"]</p>
+
+
+                                            <div class="d-flex gap-2 mt-4">
+
+                                                <button class="btn btn-primary flex-fill">
+                                                    <i class="bi bi-eye-fill"></i> View Details
+                                                </button>
+
+                                                <button class="btn btn-warning flex-fill text-white">
+                                                    <i class="bi bi-pencil-fill"></i> Edit
+                                                </button>
+
+                                                <button class="btn btn-danger flex-fill">
+                                                    <i class="bi bi-trash-fill"></i> Delete
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

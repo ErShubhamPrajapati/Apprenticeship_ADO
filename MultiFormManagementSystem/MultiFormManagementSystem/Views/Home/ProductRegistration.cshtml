@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "ProductRegistration";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="row">
+
+                <!-- Product Registration Form -->
+                <div class="col-sm-4">
+                    <form method="post">
+
+                        <h3>Product Registration</h3>
+                        <br />
+
+                        <label>Product ID</label>
+                        <input type="text" name="productid" class="form-control" />
+                        <br />
+
+                        <label>Product Name</label>
+                        <input type="text" name="productname" class="form-control" />
+                        <br />
+
+                        <label>Product Category </label>
+                        <select name="productcategory" class="form-control">
+                            <option value="">Select Product</option>
+                            <option>Electronics</option>
+                            <option>Clothing</option>
+                            <option>Furniture</option>
+                            <option>Mobile Accessories</option>
+                            <option>Computer Accessories</option>
+                            <option>Sports</option>
+                        </select>
+                        <br />
+
+                        <label>Product Price</label>
+                        <input type="number" name="productprice" class="form-control" />
+                        <br />
+                        <label>Product Quantity</label>
+                        <input type="number" name="productquantity" class="form-control" />
+                        <br />
+                        <label>Product Description</label>
+                        <textarea name="productdescription" class="form-control"></textarea>
+                        <br />
+                        <label> Product Brand Name</label>
+                        <input type="text" name="brandname" class="form-control" />
+                        <br />
+                        <label>Product Manufacturing Date</label>
+                        <input type="date" name="manufacturingdate" class="form-control" />
+                        <br />
+
+                        <label>Product Expiry Date</label>
+                        <input type="date" name="expirydate" class="form-control" />
+                        <br />
+                        <label>Product Status</label>
+                        <select name="productstatus" class="form-control">
+                            <option value="">Select Status</option>
+                            <option>Available</option>
+                            <option>Out of Stock</option>
+                            <option>Discontinued</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        <br />
+
+                        <input type="submit" value="Register Now" class="btn btn-primary" />
+                        <input type="reset" value="Reset" class="btn btn-danger" />
+
+                    </form>
+                </div>
+
+
+                <!-- Product Card View -->
+                <div class="col-sm-8">
+
+                    <div class="container mt-4">
+
+                        <div class="row">
+
+                            @foreach (System.Data.DataRow row in ViewBag.dt.Rows)
+                            {
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="card shadow rounded-3 border-0">
+
+                                        <div class="card-header bg-primary bg-opacity-25 p-3">
+
+                                            <div class="d-flex align-items-center gap-3">
+
+                                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                     style="width:90px;height:90px;font-size:35px;">
+
+                                                    @(row["productname"].ToString().Substring(0, 1).ToUpper())
+
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="mb-1 fw-bold">
+                                                        @row["productname"]
+                                                    </h4>
+
+                                                    <span class="badge bg-primary fs-6">
+                                                        @row["productid"]
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="card-body p-4">
+
+                                            <p>📧 &nbsp; @row["brandname"]</p>
+
+                                            <p>📅 &nbsp; @row["productquantity"]</p>
+
+                                            <p>🏢 &nbsp; @row["productcategory"]</p>
+
+                                            <p>💰 &nbsp; @row["productprice"]</p>
+
+                                            <p>📅 &nbsp; @row["manufacturingdate"]</p>
+                                            <p>📅 &nbsp; @row["expirydate"]</p>
+                                            <p>👤 &nbsp; @row["productdescription"]</p>
+                                            <p>&nbsp; @row["productstatus"]</p>
+
+
+                                            <div class="d-flex gap-2 mt-4">
+
+                                                <button class="btn btn-primary flex-fill">
+                                                    <i class="bi bi-eye-fill"></i> View Details
+                                                </button>
+
+                                                <button class="btn btn-warning flex-fill text-white">
+                                                    <i class="bi bi-pencil-fill"></i> Edit
+                                                </button>
+
+                                                <button class="btn btn-danger flex-fill">
+                                                    <i class="bi bi-trash-fill"></i> Delete
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

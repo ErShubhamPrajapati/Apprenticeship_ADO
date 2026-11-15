@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "CourseRegistration";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="row">
+
+                <!-- Course Registration Form -->
+                <div class="col-sm-4">
+
+
+                    <form method="post">
+
+                        <h3>Course Registration</h3>
+                        <br />
+
+                        <label>Course ID</label>
+                        <input type="text" name="courseid" class="form-control" />
+                        <br />
+
+                        <label>Course Name</label>
+                        <input type="text" name="coursename" class="form-control" />
+                        <br />
+
+                        <label>Course Duration </label>
+                        <select name="courseduration" class="form-control">
+                            <option value="">Select Duration </option>
+                            <option>30 Days</option>
+                            <option>45 Days</option>
+                            <option>3 Months</option>
+                            <option>6 Months</option>
+                            <option>1Year</option>
+                        </select>
+                        <br />
+
+                        <label>Course Fees</label>
+                        <input type="number" name="coursefees" class="form-control" />
+                        <br />
+                        <label>Student Name</label>
+                        <input type="text" name="studentname" class="form-control" />
+                        <br />
+
+                        <label>Admission Date</label>
+                        <input type="date" name="admissiondate" class="form-control" />
+                        <br />
+
+                        <label>Course Category </label>
+                        <select name="coursecategory" class="form-control">
+                            <option value="">Select Course</option>
+                            <option>Programming</option>
+                            <option>Cyber Security</option>
+                            <option>Web Development</option>
+                            <option>Data Science</option>
+                            <option>Cloud Computing</option>
+                        </select>
+                        <br />
+                        <label>Instructor Name</label>
+                        <input type="text" name="instructorname" class="form-control" />
+                        <br />
+                        <label>Payment Status </label>
+                        <select name="paymentstatus" class="form-control">
+                            <option value="">Select Status</option>
+                            <option>Cash</option>
+                            <option>\UPI</option>
+                            <option>Paid</option>
+                            <option>Unpaid</option>
+                        </select>
+                        <br />
+                        <label>Course Mode</label>
+                        <select name="coursemode" class="form-control">
+                            <option value="">Select Mode</option>
+                            <option>Online</option>
+                            <option>Offline</option>
+                            <option>Hybrid</option>
+                        </select>
+                        <br />
+
+                        <input type="submit" value="Register Now" class="btn btn-primary" />
+                        <input type="reset" value="Reset" class="btn btn-danger" />
+
+                    </form>
+
+                </div>
+
+
+                <!-- Course Card View -->
+                <div class="col-sm-8">
+
+                    <div class="container mt-4">
+
+                        <div class="row">
+
+                            @foreach (System.Data.DataRow row in ViewBag.dt.Rows)
+                            {
+                                <div class="col-md-6 mb-4">
+
+                                    <div class="card shadow rounded-3 border-0">
+
+                                        <div class="card-header bg-primary bg-opacity-25 p-3">
+
+                                            <div class="d-flex align-items-center gap-3">
+
+                                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+                                                     style="width:90px;height:90px;font-size:35px;">
+
+                                                    @(row["studentname"].ToString().Substring(0, 1).ToUpper())
+
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="mb-1 fw-bold">
+                                                        @row["studentname"]
+                                                    </h4>
+
+                                                    <span class="badge bg-primary fs-6">
+                                                        @row["courseid"]
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="card-body p-4">
+
+                                            <p>📧 &nbsp; @row["coursename"]</p>
+
+                                            <p>📅 &nbsp; @row["courseduration"]</p>
+
+                                            <p>🏢 &nbsp; @row["coursecategory"]</p>
+
+                                            <p>💰 &nbsp; @row["coursefees"]</p>
+
+                                            <p>📅 &nbsp; @row["admissiondate"]</p>
+                                            <p>👤 &nbsp; @row["instructorname"]</p>
+                                            <p>&nbsp; @row["paymentstatus"]</p>
+                                            <p>&nbsp; @row["coursemode"]</p>
+
+
+                                            <div class="d-flex gap-2 mt-4">
+
+                                                <button class="btn btn-primary flex-fill">
+                                                    <i class="bi bi-eye-fill"></i> View Details
+                                                </button>
+
+                                                <button class="btn btn-warning flex-fill text-white">
+                                                    <i class="bi bi-pencil-fill"></i> Edit
+                                                </button>
+
+                                                <button class="btn btn-danger flex-fill">
+                                                    <i class="bi bi-trash-fill"></i> Delete
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
